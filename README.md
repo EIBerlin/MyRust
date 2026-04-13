@@ -35,4 +35,5 @@ cd MyRust
 
 ```bash
 cargo run
+cargo run --bin rust_02_scope
 ```
