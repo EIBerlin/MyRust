@@ -36,4 +36,5 @@ cd MyRust
 ```bash
 cargo run
 cargo run --bin rust_02_scope
+cc src/bin/rust_12_null_pointer_inject_compare_c.c -o src/bin/c && ./src/bin/c
 ```
