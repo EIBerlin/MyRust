@@ -22,13 +22,7 @@ impl Node {
     }
 
     fn print_list(&self) {
-        let mut cur = self;
-        print!("List: ");
-        while let Node::Value(v, n) = cur {
-            print!("{} → ", v);
-            cur = &**n;
-        }
-        println!("Empty");
+        println!("{:?}", self);
     }
 }
 
