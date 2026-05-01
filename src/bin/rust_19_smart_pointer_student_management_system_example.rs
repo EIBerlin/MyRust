@@ -265,9 +265,6 @@ impl System {
 }
 
 fn main() {
-
-
-
     let mut system = System::new();
 
     system
