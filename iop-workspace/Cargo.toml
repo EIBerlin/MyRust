@@ -1,0 +1,44 @@
+[workspace]
+resolver = "2"
+
+members = ["ws_lib", "ws_one"]
+
+# Default package when running `cargo run` from root
+default-members = ["ws_lib"]
+
+
+# =========================
+# Shared Package Metadata
+# =========================
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["EIBerlin <ei.berlin@protonmail.com>"]
+license = "MIT"
+
+
+# =========================
+# Shared Dependencies
+# =========================
+[workspace.dependencies]
+# serde = { version = "1.0", features = ["derive"] }
+
+
+# =========================
+# Profiles
+# =========================
+
+# Dev profile (fast iteration 🏃)
+[profile.dev]
+opt-level = 0
+debug = true
+incremental = true
+overflow-checks = true
+
+# Release profile (performance beast 🐉)
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = true
