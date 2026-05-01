@@ -1,14 +1,6 @@
-
-
-
-
-
-
-
-
 /**
  * - We will create this with rust, smart_pointer, box, single linked list
- * 
+ *
  * Student Management System
  *
  * This Student Management System manages students, classes, and attendance records.
@@ -49,7 +41,44 @@
  * - calculate_attendance: compute attendance from the class start date up to the current date
  * - calculate_yearly_average_attendance: compute average attendance per year
  */
+use std::fmt::Debug;
+
+trait PrintTrait {
+    fn one(self) -> Self;
+    fn two(self) -> Self;
+    fn three(self) -> Self;
+    fn get(self);
+}
+#[derive(Debug)]
+struct PrintStruct<T> {
+    my_vec: Vec<T>,
+}
+
+impl<T: Debug> PrintTrait for PrintStruct<T>
+where
+    T: From<u8>,
+{
+    fn one(mut self) -> Self {
+        self.my_vec.push(T::from(1));
+        self
+    }
+    fn two(mut self) -> Self {
+        self.my_vec.push(T::from(2));
+        self
+    }
+    fn three(mut self) -> Self {
+        self.my_vec.push(T::from(3));
+        self
+    }
+    fn get(self) {
+        println!("{:?}", self);
+    }
+}
 
 pub fn main() {
-    //
+    let my_vec: Vec<u8> = vec![];
+    PrintStruct { my_vec }.one().two().three().get();
+
+    let my_vec: Vec<u8> = vec![];
+    (PrintStruct { my_vec }).one().three().three().two().get();
 }
