@@ -8,6 +8,10 @@ impl<T> MBox<T> {
     }
 }
 
+struct BBox<T> {
+    x: T,
+}
+
 impl<T> Deref for MBox<T> {
     type Target = T;
     fn deref(&self) -> &Self::Target {
@@ -25,6 +29,7 @@ pub fn main() {
     let x = 5;
     {
         let y = MBox::new(x);
+        BBox { x: *y };
         println!("value created! y is {:?}", *y);
     }
     println!("end scope!")
